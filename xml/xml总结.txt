@@ -1,0 +1,28 @@
+1、JAXP DOM
+	* I --> document
+		* DocumentBuilderFactory --> newInstance()
+		* DocumentBuilder  -- factory.newDocumentBuilder()
+		* Document -->builder.parse("xml")
+		* NodeList  --> getLength()  item(n);
+	* O
+		* TransformerFactory  --> newInstance()
+		* Transformer  --> facotry.newTransformer()
+		* transform(Source,Result);
+			* DomSource  -- dom
+			* StreamResult -- file
+
+2、JAXP SAX
+	* SAXParserFactory --> newInstance()
+	* SaxParser  --> factory.newSaxPareser
+	* parser.parse("xml",DefaultHandler);  --默认基类
+
+
+3、Dom4j
+	* I SaxReader  -- reader("xml")
+	* o XMLWriter("file")  -- writer(document)
+
+	
+4、目标：解析xml，将需要的内容添加到xml中（dom4j --> jaxp dom  --> jaxp sax）
+	* 读取xml --> 获得解析器 --document
+	* 读取指定内容 --> 遍历
+	* 将所有获得的数据封装

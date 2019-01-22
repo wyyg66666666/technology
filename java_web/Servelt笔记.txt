@@ -1,0 +1,150 @@
+1、什么是Servlet？
+	* 服务器端Java程序，servlet需要交给服务器来运行。
+	* 与javax.servlet.Servlet接口有关的java程序
+
+
+2、如果使用servlet？【必须】
+	* 创建web项目
+	* 创建一个类，并实现Servlet接口
+	* 交给服务器运行 /WEB-INF/web.xml
+		<!-- 注册servlet
+			<servlet>标签：进行servlet注册
+				<servlet-class>标签：确定servlet类所在位置
+					* 内容：需要注册的servlet类的完整路径名
+				<servlet-name>标签：为servlet起一个别名，提供给其他程序使用
+					* 内容：自定义
+						* 要求，必须唯一
+		 -->
+		<servlet>
+			<servlet-name>HelloWorld</servlet-name>
+			<servlet-class>cn.itcast.HelloWorld</servlet-class>
+		</servlet>
+		<!-- 
+			servlet的映射
+			<servlet-mapping>标签：映射已有的servlet
+				<servlet-name>标签：确定使用的已有的servlet的名称
+					* 内容：来自之前配置的<servlet><servlet-name>的内容
+				<url-pattern>标签：确定浏览器访问的路径
+					* 内容：自定义
+						* 要求 ： 必须“/”开头，名称唯一
+		 -->
+		<servlet-mapping>
+			<servlet-name>HelloWorld</servlet-name>
+			<url-pattern>/hello</url-pattern>
+		</servlet-mapping>
+	* 测试：http://localhost:8080/day05/hello
+
+
+
+
+3、为什么这样使用？
+	*  javax.servlet.Servlet的生命周期：
+		* init(ServletConfig)
+			* servlet的初始化方法,执行次数：1次
+			* javax.servlet.ServletConfig对当前servlet的配置信息的描述
+				* getServletName()：返回当前servlet的名称：<servlet><servlet-name>配置
+				* getInitParameter("paramName")：返回指定初始化参数名称的值
+					* 	<servlet>
+							<servlet-name>helloWorld222</servlet-name>
+							<servlet-class>cn.itcast.HelloWorld2</servlet-class>
+							<!-- 配置初始化参数列表 -->
+							<init-param>
+								<!-- 初始化参数的名称 -->
+								<param-name>gf</param-name>
+								<!-- 初始化参数的值 -->
+								<param-value>凤姐</param-value>
+							</init-param>
+						</servlet>
+				* getInitParameterNames():返回当前servlet的所有的初始化参数的名称
+					* 返回值：java.util.Enumeration  --> hasMoreElements(),nextElement()
+				* getServletContext():ServletConfig保存了当前web项目的 ServletContext的引用[暂记]
+		* service(ServletRequest,ServletResponse)【**】
+			* 当前servlet请求与响应时调用的方法
+				* ServletRequest：存放所有用户的请求信息
+				* ServletResponse：存放服务器响应给用户的所有的信息
+			* 总结
+				* request
+					* 接口：javax.servlet.ServletRequest
+					* 实现类：org.apache.catalina.connector.RequestFacade
+					* 关系：
+						* public class RequestFacade implements HttpServletRequest {
+						* public interface HttpServletRequest extends ServletRequest {
+					* 总结： RequestFacade --> HttpServletRequest  --> ServletRequest
+					* 结果：javax.servlet.http.HttpServletRequest request = (HttpServletRequest) req;
+				* response
+					* 接口：javax.servlet.ServletResponse
+					* 实现类：org.apache.catalina.connector.ResponseFacade
+					* 关系：
+						* public class ResponseFacade implements HttpServletResponse {
+						* public interface HttpServletResponse extends ServletResponse {
+					* 总结： ResponseFacade --> HttpServletResponse  --> ServletResponse
+					* 结果：javax.servlet.http.HttpServletResponse response = (HttpServletResponse) resp;
+		* destroy()
+			* 当前servlet的销毁方法，回收资源
+			
+	* javax.servlet.GenericServlet类【看】  this,super
+		* 通用servlet实现类，与协议无关
+		* 此类是抽象类，具有抽象方法service(ServletRequest,ServletResponse)
+			* public abstract void service(ServletRequest req, ServletResponse res) throws ServletException, IOException;
+		* 此类实现Servlet接口，此类也实现了ServletConfig接口
+			* public abstract class GenericServlet implements Servlet, ServletConfig
+		* 此类缓存了init方法的实际参数的值。（ServletConfig的实例对象给缓存了）
+			* public void init(ServletConfig config) throws ServletException {
+				this.config = config;
+				this.init();
+			  }
+		* 此类中在一个没有参数init方法，所有的servlet初始化工作，建议覆盖此方法。
+			* 否则，覆盖带有参数的init方法，需要在方法的第一行添加super.init(config);
+			* public void init(ServletConfig config) throws ServletException {
+				super.init(config); //此行代码必须存在
+				//之后是自己的内容
+			 }
+	* javax.servlet.http.HttpServlet类
+		* 此类是抽象类，但是不存在抽象方法。
+			* 抽象类的原因，需要子类进行HttpServlet类方法的覆盖
+			* 没有抽象方法的原因：当子类覆盖父类的相应的方式时，没有强制要求
+		* 此类是与协议（http）有关的servlet的实现类
+			* request = (HttpServletRequest) req;
+              response = (HttpServletResponse) res;
+		* request.getMethod()方法，返回当前servlet的请求方法，方便与处理不同的请求
+		
+	* 总结：【**】
+		* 创建一个类，继承HttpServlet类
+			* 根据需求，覆盖doPost和doGet方法
+		* 需要再web.xml中进行配置
+		* 测试
+		* 注意：
+			* 如果需要初始化工作：覆盖init()方法
+			* 如果初始化工作需要耗费大量时间，需要设置servlet的在服务器启动时进行初始化工作。
+				* <servlet><load-on-startup>2</load-on-startup>
+				* 配置当前servlet在服务器启动时加载顺序，取值：0-6 ,值越小，优先加载
+
+4、servlet的虚拟路径
+	1、只能使用 / 或 * 开头
+	2、/ 和 *. 不能同时存在
+	3、/ 或 /* 表示任意
+	4、只有*.才表示通配符
+
+5、cmd: netsh winsock reset  (win7)
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

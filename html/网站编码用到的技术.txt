@@ -1,0 +1,111 @@
+1.Jquery框架 用于提供监听html元素事件以及处理各种事件的框架
+2.Ajax框架 用于发送各种网页请求的框架
+3.dubbo框架
+4.zookeeper 集群管理软件
+  注：有个特别重要的功能是集中管理配置文件（一个集群会有很多服务器，特别是修改服务器配置文件时，如果一台一台的修改耗时耗力，所以zookeeper集中管理配置应运而生，http://blog.csdn.net/huangfengxiao/article/details/8844239）
+5.svn软件  项目管理工具
+  git 项目管理工具 ，功能跟SVN大同小异（注：git在mac上可以使用sourceTree客户端进行操作） 
+6.maven软件 项目管理工具
+7.angularjs框架
+8.metaQ框架 消息队列
+9.mysql软件 数据库
+10.navicat软件 mysql数据库的客户端
+11.Spring框架 
+12.bootstrap框架   用于页面布局
+13.log4j框架  日志框架
+14.tomcat软件 服务器
+15.strom  用于实时统计
+16.hadoop 用于以前数据的统计，不具实时性
+17.highcharts和echarts 此框架用于网页编写各种图表（扇形图、柱状图、折线图等等）
+18.查看代码的规范性 sonar  http://blog.csdn.net/hunterno4/article/details/11687269
+19.JPEXS flash反编译软件
+20.json校验格式化   网址：http://www.bejson.com/go.php?u=http://www.bejson.com/jsonviewernew/
+
+21.Jquery mobile 用于开发移动应用，可以移植到各种主流移动平台，包括ios，Android,wp 。与phonegap结合使用
+22.phonegap  用于开发移动应用，可以移植到各种主流移动平台，包括ios，Android,wp。与Jquery mobile结合使用
+23.jquery ui 此框架用于网页布局，提供了很多现成的布局方式以及样式
+24.jquery easyUI  此框架用于网页布局，提供了很多现成的布局方式以及样式
+25.Date.js   (建议使用这个框架，而不要自己去写)执行日期/时间的计算  网址：www.datejs.com  下载：百度云盘之技术资料的jar包之js架包下面的date包下面的Datejs-all-Alpha1压缩包
+
+26.lazyload  用于动态加载js文件，这样可以在使用的时候再去加载js文件，提高页面的加载速度 网址：    https://github.com/rgrove/lazyload/
+27.LABjs框架  和lazyload框架的作用一样。 网址：http://labjs.com/
+28.modernizr框架 用于检测浏览器是否支持某些功能   官网：http://modernizr.com/   代码见百度云盘的web源码
+29.formValidator 框架 验证表单输入的正确性   代码见百度云盘的web源码
+30.propotype.js框架 用于在js很好的理清对象的继承关系，也就是能很好的支持js对象的继承、修改页面内容以及获取元素  代码见百度云盘的web源码的jar包                 
+   例子见javascript语法与操作.doc文档的 js中对象继承问题
+
+33.raphaeljs框架  用于绘制热力图和矢量图形等等，对于浏览器不支持html5的，效果非常不错，而不需要选择flash
+34.bugfree 免费的bug管理系统
+35.聊天框架   netty 、nio
+36.权限框架   shiro
+37.JsRender 是一款基于jQuery的JavaScript模版引擎
+38.jquery.pagination.js 分页插件
+39.echarts 画各种图表，饼图、柱状图、热力图等
+40.RequireJS 是一个JavaScript模块加载器。可以见http://www.runoob.com/w3cnote/requirejs-tutorial-1.html的介绍
+
+41.template.js  模板js，具体使用可以百度  https://github.com/yanhaijing/template.js/blob/master/doc/api.md
+42.jquery.url.js 用于解析URLs字符串。通过它我们可以方便地获取协议、主机、端口、查询参数、文件名、路径等等。
+   http://github.com/allmarkedup/jQuery-URL-Parser
+43.文件上传的插件  WebUploader  文档地址：http://fex.baidu.com/webuploader/doc/index.html
+44.前端验证  jQuery validate插件
+45.日期控件   Pikaday 网站：https://github.com/dbushell/Pikaday
+   日期处理moment.js框架，网站：http://momentjs.com/docs/
+46.测试bug系统 禅道项目管理软件  http://10.151.30.27:8091/zentao/my/
+47.Flume 一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统
+48.Spark 拥有Hadoop MapReduce所具有的优点；但不同于MapReduce的是Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。
+
+关于爬虫搜索等等
+1.lucene 用于为程序添加搜索功能的框架，是个强大的java搜索库，高性能可扩展信息检索工具库http://lucene.apache.org/lucene
+2.solr http://lucene.apache.org/solr 支持关系数据库和xml文档中提取原始数据，以及能够通过集成tika来处理复杂的文档
+3.Nutch http://lucene.apache.org/nutch 包含大规模的爬虫工具，能够抓取和分辨web站点数据
+4.Grub http://www.grub.org 比较流行的开源web爬虫工具
+5.Heritrix http://crawler.archive.org 开源的Internet文档搜索程序
+6.Drods http://incubator.apache.org/droids 
+7.Aperture http://aperture.sourceforge.net 支持从web站点、文件系统和邮箱中抓取，并解析和索引其中的文本数据
+8.htmlunit 爬虫开源框架 用于模拟浏览器访问网页  比如模拟登陆等等
+9.fastjson json的解析器和生成器  主要用于将json字符串转为对象或者对象转为json字符串（推荐使用）
+    网址：https://github.com/alibaba/fastjson/releases
+10.wireshark 用于抓取网络请求的包   windows直接使用
+      Mac版 必须还要安装X11 这样才能使用 如果Mac版找不到网卡 需要在终端输入命令 具体见wireshark的使用方法
+11.WHO is 用于获取电脑连接外网的iP  网址：http://who.is/
+12.googlebot 谷歌机器人，也就是谷歌爬虫， 网址：http://codex.wordpress.org.cn/Googlebot
+13.爬虫框架heritrix和WebCollector  用于扒取网站的内容
+14.jsoup框架  用于解析和遍历一个html文档，可以使用类似于CSS选择器来解析HTML文档  官网：http://jsoup.org/    中文教程网址：http://www.open-open.com/jsoup/   （推荐使用）
+15.表单分析器  让网络机器人开发者验证一个表单方法、用户代理名称、请求参数等
+   使用步骤：将原网页保存到本地，然后将表单中的action值换成下面的URL，然后在浏览器中打开该网页，填写表单，提交到网页分析器的URL，显示出分析结果。
+   http://www.webbotsspidersscreenscrapers.com/form_analyzer.php
+16.Xsoup Xsoup是基于Jsoup开发的HTML抽取器，提供了XPath支持。
+ 
+生活实用部分
+1.查看别人网站搜索优化（SEO）的关键字  https://www.abakus-internet-marketing.de/tools/topword.htm在这个网站输入别人的网址就能知道他所使用的所有关键字（主要用于自己网站搜索排名优化）
+2.查询相关关键词  比如便宜相关的关键词有相音，打折，特惠等等，网站：http://www.gorank.com/seotools/ontology
+3.http://www.digitalpoint.com/tools/suggestion/  ,查看最新的搜索引擎查询关键字的各种组合的搜索频度
+4.http://www.onfocus.com/googlesmarck/down.asp  快速提取Google的搜索结果数目，这个工具可以让你在Google的搜索结果中比较两个竞争关键字的综合频度
+5.代理   https://xiaomenkou.info/b/http://www.us-proxy.org/
+6.查询可用代理服务器列表  http://www.us-proxy.org/
+7.Tor 匿名代理服务，可以做到无法追踪用户信息
+8.笔记 http://leanote.com/share/note/569e1009ab64415be1006870
+9.Markdown 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。
+
+
+大数据类
+1.Phoenix 一个Java中间层，支持hbase的标准SQL语句操作hbase数据库，简化了hbase的操作。
+
+
+正则表达式
+1.RegexBuddy 工具：用来创建、测试和实现正则表达式的功能最丰富的工具。只能在windows上运行，Mac或者Linux需要安装虚拟机。
+2.RegexPal 工具：正则表达式测试工具  http://www.regexpal.com
+3.http://regex.larsolavtorvik.com 正则表达式测试工具网站   支持PHP PCRE、PHP POSIX和Javascript
+4.http://www.nregex.com 正则表达式测试工具网站 支持.NET 1.X
+5.http://www.rubular.com 正则表达式测试工具网站 支持ruby 1.8
+6.http://www.myregexp.com 正则表达式测试工具网站 支持Java 
+  eclipse插件地址：http://regex-util.sourceforge.net/update/，这样就可以在eclipse中进行测试了
+7.http://osteele.com/tools/reanimator 正则表达式测试工具网站
+
+性能监考工具
+1.new relic  
+2.MySQL慢查询日志生成剖析报告工具   
+  推荐 pt-query-digest 可以将查询报告保存到数据库、追踪工作负载随时间的变化
+
+
+

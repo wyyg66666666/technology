@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/books2" 
+	xmlns:tns="http://www.example.org/books2" 
+	elementFormDefault="qualified">
+	
+	<!-- 定义根元素 element -->
+	<element name="books">
+		<complexType>
+			<sequence>
+			
+				<!-- 1、定义元素
+					<ele></ele>
+				
+				 -->
+				<element name="ele"></element>
+				
+				
+				<!-- 2、定义元素包含子元素 ** 顺序 ** dtd ,
+					<person>
+						<name></name>
+						<age></age>
+					</person>
+					* 当前子元素的类型 
+						* 符合类型 complexType
+						* 简单类型simpleType
+					* 子元素的顺序
+				
+				 -->
+				<element name="person">
+					<complexType>  <!-- 符合类型 -->
+						<sequence> <!-- 顺序，内部包含的子元素 -->
+							<element name="name"></element>
+							<element name="age"></element>
+						</sequence>
+					</complexType>
+				</element>
+				
+				<!-- 3、定义元素包含子元素 ** 选择 ** dtd |
+					<user>
+						<name></name>
+						<age></age>
+					</user>
+					* 当前子元素的类型 
+						* 符合类型 complexType
+						* 简单类型simpleType
+					* 子元素的顺序
+				
+				 -->
+				 
+				 <element name="user">
+				 	<complexType>
+				 		<choice><!-- 选择 -->
+				 			<element name="name"></element>
+							<element name="age"></element>
+				 		</choice>
+				 	</complexType>
+				 </element>
+				 
+				 
+				 <!-- 4、定义元素包含子元素 ** 没顺序 ** dtd |
+					<worker>
+						<name></name>
+						<age></age>
+					</worker>
+					* 当前子元素的类型 
+						* 符合类型 complexType
+						* 简单类型simpleType
+					* 子元素的顺序
+				
+				 -->
+				<element name="worker">
+					<complexType>
+						<all>
+							<element name="name"></element>
+							<element name="age"></element>
+						
+						</all>
+					</complexType>
+				</element>
+				
+				
+				<!-- 
+					5、包含属性，有内容的元素
+					<price unit="￥">34</price>
+				
+				 -->
+			
+				<element name="price">
+					<complexType>
+						<simpleContent> <!-- 简单内容 -->
+							<!-- 扩展，将简单的内容扩展成复杂的类型
+								base：确定简单内容的类型
+							 -->
+							<extension base="integer"> 
+								<!-- 定义属性 
+									name:确定名称
+									type：确定类型
+									use:
+										* optional 可选
+										* required 必须
+										* prohibited 禁用
+								-->
+								<attribute name="unit" type="string" use="required"> 
+								
+								</attribute>
+							</extension>
+						
+						
+						</simpleContent>
+					
+					
+					</complexType>
+				
+				</element>
+			
+			</sequence>
+		</complexType>
+	
+	</element>
+</schema>

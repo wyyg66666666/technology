@@ -1,0 +1,10 @@
+步骤1：hbase shell 进入hbase命令
+1、查看所有数据表 list
+2、查看某个表的数据 scan ‘表名’
+3、查看某个表的大小 count ‘表名’
+4、根据id查询某条数据  get 'qx-company_ali','111tcjs'  qx-company_ali是表名   111tcjs数据id
+5、创建表 create 'qx-court_decision’（表名）,’d’（列族名称）
+6、删除表  先要屏蔽该表，才能对该表进行删除，第一步 disable '表名称' 第二步  drop '表名称'
+7、删除某条记录  delete  '表名' ,'行名称' , '列名称'
+8、查看某数据的所有版本数据  scan ‘表名’,{VERSION => 3}
+9、查看表结构 describe ‘表名‘

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ENTITY info "凤姐">
+<!ENTITY % userInfo "name,age,tel">
+
+
+<!ELEMENT books (person,user,worker)>
+
+<!ELEMENT person (%userInfo;)>
+<!ELEMENT user (%userInfo;,password)>
+<!ELEMENT worker (%userInfo;,money)>

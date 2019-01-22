@@ -1,0 +1,2 @@
+然后，点击eclipse中的 window>proferences>Java>Code Style>Code Template
+点击“import"导入文件 即可；

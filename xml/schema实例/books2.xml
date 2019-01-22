@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books xmlns="http://www.example.org/books2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/books2 books2.xsd"
+>
+
+	<ele></ele>
+	
+	<person>
+		<name></name>
+		<age></age>
+	</person>
+	
+	<user>
+		<age></age>
+	</user>
+	
+	<worker>
+		<age></age>
+		<name></name>
+	</worker>
+	
+	<price unit="￥">123</price>
+
+</books>

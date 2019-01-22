@@ -1,0 +1,205 @@
+0、配置servlet的模板
+	1、找Jar文件：\Common\plugins （myeclipse.ini文件中查看）
+		* com.genuitec.eclipse.wizards*.jar
+	2、找模板文件
+		* templates目录/servlet.java
+		
+
+1、什么JSP
+	* servlet：java编写的处理动态web的技术
+		* 特点：Java代码中嵌套html代码
+	* jsp
+		* 特点：HTMl代码中嵌套java代码
+	* %tomcat%/conf/web.xml  --> <servlet-mapping><servlet-name>*.jsp
+	* 目的：将页面数据处理与页面显示相分离
+
+
+2、JSP是如何工作的
+	* 继承关系
+		* public final class demo_jsp extends org.apache.jasper.runtime.HttpJspBase
+		* public abstract class HttpJspBase extends HttpServlet implements HttpJspPage
+		* 总结：demo_jsp  --> HttpJspBase  --> HttpServlet
+	* tomcat调用servlet引擎处理JSP页面
+		* 位置： %tomcat%/conf/web.xml  --> serlvet(*.jsp) -->  org.apache.jasper.servlet.JspServlet
+		* 在web context root 读取指定的文件	
+			*/demo.jsp
+		* 将读取的文件分析，生成相应的servlet文件，java源文件
+			* demo_jsp.java
+			* 目录：%tomcat%\work\引擎\主机\项目名\org\apache\jsp
+		* 将生成的Java文件，编译成字节码文件
+			* demo_jsp.class
+	* 通知servlet引擎处理当前生产好的servlet
+
+
+
+3、JSP语言
+	* JSP指令：配置页面的信息，提供给JSP引擎生产java源文件
+		* 格式：<%@ 指令 [attribute="value"]%>
+		* 位置：建议放置带页面的头部
+		* page指令
+			* 格式：<%@ page ...%>
+			* 属性配置：
+				* pageEncoding:配置当前页面保存信息的编码
+				* contentType:配置当前页面生成的servlet文件响应浏览器的编码
+					* response.setContentType("text/html;charset=UTF-8");
+					* 比较：
+						* 仅有pageEncoding
+							* 配置当前页面的编码
+							* 配置生成servlet文件响应浏览器的编码
+						* 仅有contentType
+							* 配置当前页面的编码
+							* 配置生成servlet文件响应浏览器的编码
+						* 两个都有
+							* pageEncoding仅设置当前页面的编码
+							* contentType仅设置servlet文件响应浏览器的编码
+				* import：引入当前JSP页面需要使用的Java类或接口的包路径
+					* 可以重复引用
+					* 多个之间可以使用逗号分隔
+					* 导包最后一条可以输入多个分号
+				* language:确定当前jsp页面使用的语言
+					* 默认：java
+				* info:确定当前页面的输出信息
+				* session：确定当前页面是否可以使用session
+					* 默认：ture
+				* extends,确定当前jsp页面在生成servlet文件时，继承的父类
+					* 扩展
+					* 例如：page extends="java.lang.String"
+					
+				* isErrorPage:是否是错误页面
+					* 默认值：false
+					* 当设置成true，在当前页面将可以使用一个变量 exception
+				* errorPage：确定错误页面
+					* 当页面出现异常时，跳转的页面
+					* / 指 context root
+				* isThreadSafe:是否是线程安全
+					* 默认值：true
+					* 如果设置成false，在生成的java源码中添加implementsSingleThreadModel 
+				* isELIgnored：是否忽略EL表达式
+					* 默认值：false
+					* 如果设置true，将忽略EL表达式
+					
+				* buffer:当前servlet文件的缓存区大小
+					* 默认值是8kb
+				* autoFlush:是否自动刷新,当buffer缓存区被填写满后，会自动的刷新内容到浏览器
+	
+		* include指令
+			* 静态包含：引入其他页面，将其他页面与当前页面合并成一个页面后，再显示给浏览器
+		* taglib指令
+			* java标签库
+	* JSP脚本元素
+		* 声明标签
+			* 格式：<%! Java方法或字段 %>
+			* 此标签中的内容，在JSP引擎生产servlet文件时，将直接拷贝。放置在当前类
+		* 表达式标签
+			* 格式：<%= java表达式 %>
+				* 例如：String str = "abc" + "def ";
+			* 等于与 out.print( 表达式 );
+			* 将表达式的结果输出到浏览器
+		* 代码块标签：
+			* 格式：<% java代码片段 %>
+				* 任何方法里面的内容
+			* 将标签内容完成拷贝，放置到service方法体中
+		* 总结：
+			* 脚本元素不能嵌套使用
+			* 不能在html注释中使用
+		* 作业：输出99乘法表，要求仅使用脚本元素
+		
+	* JSP注释
+		* 格式：<%-- 注释内容 --%>
+		* HTML注释：<!-- 注释内容  -->
+		* Java注释：
+			* 行注释：//注释内容
+			* 块注释：/*  注释内容  */
+			* 标准JavaDoc注释：/** 注释内容  */
+		* 总结
+			*		HTML源码	Java源码	JSP源码
+			html	有			有
+			java	无			有
+			jsp		无			无
+		* 结论：JSP注释，仅在源码级别有效
+
+	* JSP的内置对象
+		* 个数：9
+		* 在JSP页面中隐藏的Java对象
+		* 1、Object page ： 当前类的引用
+			* 作用范围：当前页面
+		* 2、HttpServletRequest request
+			* 作用范围：一次请求（可能涉及多个JSP或Servlet，转发）
+		* 3、HttpSession session
+			* 作用范围：一个会话
+		* 4、ServletContext application
+			* 作用范围：整个web项目
+		* 5、ServletConfig config
+			* 当前servlet的配置
+			* 可以单独配置，把JSP文件当成servlet使用
+				* 配置文件的位置：WebRoot/web.xml
+				* 内容
+					 <!-- 注册jsp -->
+					 <servlet>
+						<servlet-name>jspfile</servlet-name>
+						<jsp-file>/obj.jsp</jsp-file>
+						<init-param>
+							<param-name>user</param-name>
+							<param-value>lt</param-value>
+						</init-param>
+					 </servlet>
+					 
+					 <!-- 映射 -->
+					 <servlet-mapping>
+						<servlet-name>jspfile</servlet-name>
+						<url-pattern>/jsp</url-pattern>
+					 </servlet-mapping>
+				* 注意：
+					1、使用tomcat，servlet引擎
+						http://localhost:8080/day08/obj.jsp
+					2、自定义访问路径
+						http://localhost:8080/day08/jsp
+		* 6、HttpServletResponse response
+			* 响应
+			* 注意：使用的Writer，所以getOutputStream会出现异常
+		
+		* 7、Throwable exception
+			* 错误页面中获得异常信息
+		* 8、JspWriter out
+			* public class JspWriterImpl extends JspWriter {
+			* abstract public class JspWriter extends java.io.Writer {
+			
+			* public class PrintWriter extends Writer {
+			
+		* 9、PageContext pageContext
+			* 当前JSP页面的上下文对象，管理当前JSP页面的
+			* 具有其他隐式对象的引用
+			* 设置属性的值
+				* 在不同的作用域设置属性值
+					pageContext.setAttribute("user","liang_page",PageContext.PAGE_SCOPE);
+					pageContext.setAttribute("user","liang_request",PageContext.REQUEST_SCOPE);
+					pageContext.setAttribute("user","liang_session",PageContext.SESSION_SCOPE);
+					pageContext.setAttribute("user","liang_application",PageContext.APPLICATION_SCOPE);
+				* 从不同的作用域获得属性值
+					<%=pageContext.getAttribute("user",PageContext.PAGE_SCOPE) %><br/>
+					<%=pageContext.getAttribute("user",PageContext.REQUEST_SCOPE) %><br/>
+					<%=pageContext.getAttribute("user",PageContext.SESSION_SCOPE) %><br/>
+					<%=pageContext.getAttribute("user",PageContext.APPLICATION_SCOPE) %><br/>
+				* 从不同的作用域，依次查询需要的属性值
+					* <%=pageContext.findAttribute("user") %>
+					* page、request、session、application
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

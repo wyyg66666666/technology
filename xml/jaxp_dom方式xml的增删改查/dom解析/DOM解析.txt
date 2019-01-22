@@ -1,0 +1,40 @@
+一、JAXP DOM解析  javax.xml.parsers
+	1、获得document对象
+		//获得实例工厂   *javax.xml.parsers.DocumentBuilderFactory
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		//获得解析  *javax.xml.parsers.DocumentBuilderFactory
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		//获得document --解析xml文档   java.io.FileNotFoundException    *org.w3c.dom.Document
+		Document document = builder.parse("books.xml");  //指java项目的根路径下的文件
+		
+	2、获得需要的内容：获得所有的书籍
+		//获得所有的书籍元素
+		NodeList bookElements = document.getElementsByTagName("book");
+
+	3、遍历
+		* 获得长度
+			bookElements.getLength()
+		* 获得指索引的节点
+			bookElements.item(i);
+		* 通过元素获得，当前元素指定的属性
+			Element.getAttribute("id");
+		* 获得当前节点的名称
+			Node.getNodeName();
+		* 获得当前节点的子节点的所有文本
+			Node.getTextContent()
+				* 例如：<book><title>Java</title></book>   --> 字符串"<title>Java</title>"
+				
+				
+二、保存
+	//获得持久化对象实例工厂
+	TransformerFactory factory = TransformerFactory.newInstance();
+	
+	//获得持久化对象
+	Transformer transformer = factory.newTransformer();
+	//将内存数据，保存到硬盘
+	
+	//源：document  将document封装到Source
+	Source xmlSource = new DOMSource(document);
+	//结果：books.jasp.xml  将“文件路径”封装到Result
+	Result outputTarget = new StreamResult("books.jasp.xml");
+	transformer.transform(xmlSource, outputTarget);

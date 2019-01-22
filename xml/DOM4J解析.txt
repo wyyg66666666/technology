@@ -1,0 +1,34 @@
+一、获得document
+	//获得解析流
+	SAXReader reader = new SAXReader();
+	//解析xml
+	Document document  = reader.read("books.xml");
+	
+	
+二、保存
+
+	//创建输出文件的位置
+	FileOutputStream out = new FileOutputStream("books.dom4j.xml");
+	
+	XMLWriter writer = new XMLWriter(out);
+	//添加内容对象
+	writer.write(document);
+	//关闭流
+	writer.close();
+	
+	
+三、API
+	* 获得根元素
+		Element rootElement = document.getRootElement();
+	* 获得所有的子元素
+		List list = rootElement.elements();
+	* 获得指定的子元素
+		Element priceElement = bookElement.element("price");
+	* 获得指定属性的元素
+		Node bookNode = document.selectSingleNode("//book[@id='b002']");
+	* 设置文本
+		priceElement.setText("100");
+	* 获得节点的名称
+		child.getName()
+	* 获得指定名称的属性值
+		String id = bookElement.attributeValue("id");

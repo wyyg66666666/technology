@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM "books4.dtd">
+<books>
+	<book id="b001">
+		<title></title>
+		<price ></price>		
+		<price></price>		
+	</book>
+	<book id="b002" pId="b001" lang="EN">
+		<title></title>
+		<price ></price>		
+		<price></price>		
+	</book>
+
+</books>

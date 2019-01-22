@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!ELEMENT books (book+)>
+<!ELEMENT book (title?,price*)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT price EMPTY>
+
+
+<!ATTLIST book 
+	id ID #REQUIRED
+	pId IDREF #IMPLIED
+	city CDATA #FIXED "北京"
+	lang (EN|CN|JP|TW) "CN"
+>

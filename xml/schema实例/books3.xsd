@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/books3" 
+	xmlns:tns="http://www.example.org/books3" 
+	elementFormDefault="qualified">
+	
+	<!-- 
+	
+		默认官方xmlns="http://www.w3.org/2001/XMLSchema" 
+		使用自定愿意类型，需要引入自定声明的schema文档的名称
+	
+	 -->
+
+	<!-- 确定根元素 -->
+	<element name="books" type="tns:myType">
+		
+	</element>
+	
+	
+	<!-- 声明类型  自定义类型
+		name：定义名称
+	 -->
+	<complexType name="myType">
+		<simpleContent> <!-- 简单内容 -->
+			<extension base="integer"> 
+				<attribute name="unit" type="string" use="required"></attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+
+</schema>

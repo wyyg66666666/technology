@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 内部关联：将约束文档书写在xml内部 -->
+
+<!DOCTYPE books [
+
+<!ELEMENT books (book+)>
+<!ELEMENT book (#PCDATA)>
+
+
+]>
+
+
+<books>
+	<book></book>
+</books>

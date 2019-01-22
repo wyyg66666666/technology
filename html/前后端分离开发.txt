@@ -1,0 +1,138 @@
+# 前后端分离开发方式_20160119
+
+[toc]
+
+
+
+# 1 环境搭建
+
+### 1.1 安装 node.js    然后安装npm 在控制台输入 npm install
+
+### 1.2 安装 VelocityServer : https://github.com/holyzfy/velocityServer
+
+    $ git clone https://github.com/holyzfy/velocityServer.git
+
+    $ cd velocityServer
+
+    $ mv config/default.json config/local.json
+
+    $ vi config/local.json
+
+    #webapps的值改成 服务器根目录，请填写绝对路径
+
+    $ vi /etc/hosts
+
+    # 配置host 127.0.0.1 dev.f2e.tcredit.com，用这个域名打开前端项目，接口调用就会得到 mock 目录下的 json
+
+
+
+    #启动 velocityServer
+
+    $ node index.js
+
+    # 停止 velocityServer: ctrl+C
+
+### 1.3 安装 febu 构建工具：https://github.com/holyzfy/febu.git
+
+    $ git clone https://github.com/holyzfy/febu.git
+
+    $ cd febu
+
+    $ mv config/default.js config/local.js
+
+    $ vi config/local.js
+
+    // 存放部署数据的目录，请填写绝对路径
+
+    dataPath: "/Users/apple/Documents/bin/febu-master/after_compile/"
+
+    $ sudo npm install -g gulp
+
+    $ sudo npm install
+
+
+
+# 2 开发流程
+
+
+其中一种方法：
+1. 开发后端 json 接口
+
+2. 把接口返回保存到前端项目的 mock 文件中；把 model 内容放到 页面同名 js 中
+
+3. 启动 velocityServer, 修改前端项目中的模板和 js，调试修改前端
+
+4. 使用qa_build.sh构建前端项目并同步静态资源到测试机器，拷贝构建后的 vm下的文件到后端项目views 目录，本机启动 tomcat 查看效果
+
+另外一种方法：
+   使用nginx,在前端启动node.js观看页面，后端启动tomcat，然后必须启动nginx，这样在node.js启动的页面中可以访问后端的接口。
+   注：在浏览器打开页面的时候必须用localhost:/xx.html,tomcat的路径最好把工程名去掉，访问路径是localhost:8080/login
+   在安装nginx时必须安装pcre，具体安装步骤是在app里面有个包，比如安装nginx时，首先进入到nginx目录下，然后在终端输入./configure  然后再输入make   最后输入 make install
+
+   nginx的启动：在终端输入 sudo nginx    终止nginx：sudo kill -QUIT 进程号
+
+
+
+ps:前端如果要重构之类的一定要通知后端
+
+
+
+# 3 必须遵守的规范: 不能让前端觉得我们不靠谱
+
+
+
+- febu约定规则：`https://github.com/holyzfy/febu#约定规则`
+
+- 改动前端项目必须遵守的规则：https://github.com/holyzfy/frontend_guidelines/blob/master/git.md
+
+- 前端约定：https://gitlab.tcredit.com/fuyun.zhao/credit_2b_pc/wikis/home
+
+
+
+# 4 附录
+
+### 4.1 qa_build.sh
+
+<pre>
+
+#!/bin/bash
+# Program: 自动构建credit_2b_pc并发布到测试机器
+
+#git库地址
+git_url="http://gitlab.tcredit.com/fuyun.zhao/credit_2b_pc.git"
+#febu 安装路径(绝对路径)
+febu_path="/Users/apple/Documents/bin/febu-master/"
+#febu 构建结果路径(绝对路径)
+febu_output_path="/Users/apple/Documents/bin/febu-master/after_compile/development/gitlab.tcredit.com/fuyun.zhao_credit_2b_pc/"
+#要同步到的服务器 ip
+server_ip="10.151.30.28"
+#要同步到的服务器用户名
+server_user="guohai.tang"
+#要同步到的服务器路径
+server_path="/data/static/f2e/credit_2b_pc/"
+
+cd $febu_path
+gulp development --repo $git_url
+rsync -vrtopg --delete-after --progress $febu_output_path/static/ $server_user@$server_ip:$server_path
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

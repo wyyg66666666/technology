@@ -1,0 +1,12 @@
+1.rose写sql的时候，如果要用like语句，千万别在DAO层写，rose会处理异常
+  正确的写法是：DAO层语句
+     SELECT id,realname FROM user u WHERE u.companyid=:compId AND u.type=20 
+			AND (u.realname LIKE ##(:cond) OR u.code LIKE ##(:cond))
+  在center的service层将like后的语句字符串传入cond   cond=“%展业%”
+2.rose在controller时，如果包名目录结构是
+   controllers
+       —-account
+         ——LoginController
+  那么在访问LoginController中的URL时需要加上account的目录
+  比如访问LoginController下的login,正确的URL是http://localhost:8080/agricultural-credit-web/account/login
+3.在DAO层使用rose时，所有的DAO都必须放在dao包下，并且dao包下不能建子包，要不然无法识别.并且接口类名必须以大写的DAO结尾

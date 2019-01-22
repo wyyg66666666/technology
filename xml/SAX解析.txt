@@ -1,0 +1,34 @@
+一、解析xml文档
+	SAXParserFactory factory = SAXParserFactory.newInstance();
+		
+	//获得解析器
+	SAXParser parser = factory.newSAXParser();
+	
+	DefaultHandler dh = new MyDefaultHandler();
+	
+	
+	//解析xml文档
+	parser.parse("books.xml", dh);
+	
+	
+二、编写自定义处理事件  new MyDefaultHandler();
+
+
+	/**
+	 * 如果xml文件使用了schema约束 <xs:element>
+	 * 	 * uri:schema -- targetNameSpace   
+	 *   * localName--element
+	 *   * qName---xs:element
+	 * 如果不使用
+	 *   * uri:null
+	 *   * localName:null
+	 *   * qName : element
+	 *   
+	 * Attributes:当前元素的所有的属性的集合
+	 */
+	public void startElement(String uri, String localName, String qName,
+			Attributes attributes) throws SAXException {
+		System.out.println("元素开始" + qName + " *** " + attributes.getValue("id"));
+	}
+	
+三、思考，能不能将SAX解析的内容存在，并供其他程序使用？
