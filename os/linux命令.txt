@@ -1,0 +1,146 @@
+1.²éÕÒÎÒÃÇ°²×°µÄ½ø³Ì£¬±ÈÈçËµtomcat£¬»òÕßjava 
+  # ps -ef | grep tomcat  »òÕß ps -aux | grep java  ²é¿´JavaÕıÔÚÔËĞĞµÄ½ø³ÌµÄÏêÏ¸ĞÅÏ¢
+
+2.½øÈëÄ³¸öÄ¿Â¼£¬±ÈÈçÊÇlocalÏÂµÄuserÄ¿Â¼
+  cd /local/user
+
+3.²é¿´Ä³¸öÄ¿Â¼ÏÂµÄÎÄ¼şÁĞ±í
+   ½øÈëµ½µ±Ç°Ä¿Â¼ÏÂ ÊäÈëÃüÁî ls£¬±ÈÈçÏë²é¿´user°üÏÂÃæµÄÁĞ±í£¬Ê×ÏÈ cd /user È»ºó ls
+
+4.×Ô¶¯²¹ÆëÊäÈëÃüÁî£¬±ÈÈçÎÒÃÇÏë½øÈëtomcat-1.7.0Ä¿Â¼ÏÂ£¬¿ÉÒÔ ÏÈÊäÈë cd /tom È»ºó°´×óÊÖ±ßµÄtab¼ü£¬¾Í¿ÉÒÔ×Ô¶¯²¹ÆëÃüÁîÁË
+
+5.ÏëÊäÈëÉÏ´ÎÊäÈëµÄÃüÁî£¬ÕâÊ±¿ÉÒÔ°´ÉÏÏÂ¼ü½øĞĞÑ¡Ôñ
+
+6.ĞŞ¸ÄÎÄ¼ş ÊäÈëÃüÁî vi server.xml È»ºóÊäÈë i ×îºóĞŞ¸ÄÁË°´ ÍË³ö¼ü£¬È»ºóÔÙÊäÈëÃüÁî:wq£¬ÕâÑù¾Í¿ÉÒÔĞŞ¸ÄÎÄ¼şÁË
+ĞŞ¸ÄÎÄ¼ş£ºctrl+d È»ºó°´·µ»Ø¼ü¾Í¿ÉÒÔÉ¾³ıÄÚÈİÁË£¬·½Ïò¼ü¿ÉÒÔÒÆ¶¯¹â±ê
+
+7.²é¿´ÕıÔÚÔËĞĞµÄjava½ø³Ì   jps
+
+8.½ø²»ÁËroot ¿ÉÒÔÊäÈësudo chmod 777 root È»ºóÔÙÊäÈëcd root¾ÍĞĞÁË
+
+9.´´½¨ÎÄ¼ş  touch x2 Èç¹ûx2µÄÎÄ¼ş´æÔÚ£¬Ôò¿É¸ü¸ÄÕâ¸öÎÄ¼ş»òÄ¿Â¼µÄÈÕÆÚÊ±¼ä£¬Èç¹ûx2²»´æÔÚ£¬touchÖ¸Áî»áÔÚµ±Ç°Ä¿Â¼ÏÂĞÂ½¨Ò»¸ö¿Õ°×ÎÄ¼şx2¡£
+
+10.Æô¶¯java³ÌĞò   ½øÈëµ½jarÄ¿Â¼ÏÂ£¬±ÈÈçjar°üÃû×ÖÊÇabc.jar  ÊäÈëÃüÁî£ºjava -jar abc.jar
+
+11.ÔÚÎÒÃÇÆô¶¯Ò»¸öjava³ÌĞòºó£¬Ïë¹Ø±Õ¿ØÖÆÌ¨ºó£¬java³ÌĞò¼ÌĞøÔËĞĞ£¬¶ø²»ÊÇ¹Ø±Õ¿ØÖÆÌ¨ºó£¬java³ÌĞòÖ±½Ó¹Ø±Õ
+   ²½Öè£ºÔÚÎÒÃÇ½øĞĞÉÏÃæÄÇ¸öÃüÁîºó£¬ °´ctrl+z½øÈëÃüÁîÊäÈëÄ£Ê½£¬È»ºóÊäÈëbg»Ø³µ£¬×îºóÊäÈëdisown»Ø³µ¾ÍĞĞÁË¡£
+   »òÕß£ºnohup java -jar tmall-sale.jar &
+        È»ºóËæ±ãÇÃ»÷Ò»¸ö¼ü£¬ÍË»Øµ½shellÊäÈëÃüÁî´°¿Ú
+        ×îºóÔÚÖÕ¶ËÊäÈëexit £¬ÍË³öÖÕ¶Ë¡£
+   
+12.ĞÂ½¨ÎÄ¼ş¼Ğ   mkdir Ä¿Â¼/ÎÄ¼şÃû  ±ÈÈçĞÂ½¨Ò»¸ödataÎÄ¼ş¼Ğ  mkdir data
+
+13.É¾³ıÎÄ¼ş¼Ğ rm -rf dataÉ¾³ıdataµÄÎÄ¼ş¼Ğ (´Ë¿ÌÏµÍ³²»»áÑ¯ÎÊÓÃ»§ÊÇ·ñÈ·ÈÏÉ¾³ı) 
+   rm name.txt  Õâ¸öÃüÁîÉ¾³ıÎÄ¼şnameµÄÊ±ºò£¬ÏµÍ³»áÑ¯ÎÊÓÃ»§È·ÈÏÉ¾³ıÎÄ¼ş
+
+14.É±ËÀÖ¸¶¨¶Ë¿ÚºÅµÄ½ø³Ì  kill -s 9 ½ø³Ì¶Ë¿ÚºÅ  É±ËÀ¶Ë¿ÚºÅÎª32999µÄ½ø³Ì  kill -s 9 32999
+
+15.ĞŞ¸ÄÖ»¶ÁÎÄ¼ş  sudo vim /etc/profile  ĞŞ¸ÄprofileÎÄ¼ş
+              sudo vi /etc/profile
+
+16.µ÷³ö»ğºüä¯ÀÀÆ÷µÄµ÷ÊÔ¹¤¾ß command+alt+i
+
+17.²é¿´ipµØÖ·   ifconfig
+
+18.²é¿´Ä³¸öµçÄÔ»òÕß·şÎñÆ÷ÊÇ·ñÄÜÆ´Í¨ £¬ ping 192.168.1.45 ²é¿´Ä³¸ö·şÎñÆ÷ÊÇ·ñÄÜÁ¬½ÓÁíÍâÒ»¸ö·şÎñÆ÷ telnet 192.168.1.45 2131(¶Ë¿ÚºÅ)£¨»òÕßÓòÃûwww.baidu.com£© ×¢Òâ£ºÄÜpingÍ¨µÄ·şÎñÆ÷²»Ò»¶¨ÄÜtelnetÍ¨£¬ÒòÎªtelnetÕë¶ÔµÄÊÇÌØ±ğµÄ³ÌĞò¶Ë¿Ú£¬¶øpingÊÇÕë¶ÔÕâÌ¨»úÆ÷
+   ×¢£ºping www.baidu.comÓòÃû£¬¿ÉÒÔµÃµ½¾ßÌåµÄip£¬ÓĞµÄÊ±ºòÎÒÃÇ²»ÖªµÀip¿ÉÒÔÊ¹ÓÃÕâ¸ö·½·¨
+
+19.macµçÄÔÏòUNIX·şÎñÆ÷´«ÊäÎÄ¼ş 
+   ´ò¿ªMacµÄÖÕ¶Ë£¬¶ø²»ÊÇ·şÎñÆ÷µÄÖÕ¶Ë ÊäÈëÈçÏÂÃüÁî   
+   scp /Users/yp-tc-m-2681/Documents/alibaba-shop.jar root@172.17.106.106:~/soft
+          MacÎÄ¼şµÄµØÖ·                                  UNIX·şÎñÆ÷µÄÓÃ»§Ãû  ·şÎñÆ÷µØÖ·  ±£´æµÄÎÄ¼şÂ·¾¶  ~±íÊ¾homeÂ·¾¶
+
+20. Mac µçÄÔÁ¬½ÓUNIX·şÎñÆ÷ 
+    ssh root@172.17.106.106  ÓÃ»§Ãû+·şÎñÆ÷iP
+
+21. ²é¿´ËùÓĞÔÚÔËĞĞµÄ½ø³ÌĞÅÏ¢    ps aux | less
+    ²é¿´Ö¸¶¨½ø³ÌĞÅÏ¢  ps aux | grep node   node¾ÍÊÇÖ¸¶¨½ø³ÌÃû³Æ
+
+22.¸´ÖÆÎÄ¼şµ½Ä³¸öÄ¿Â¼ÏÂ  cp Ô´ÎÄ¼ş Ä¿±êÄ¿Â¼   cp hbasedb.jar ./log ½«hbasedb.jarÎÄ¼ş¸´ÖÆµ½logÎÄ¼ş¼ĞÏÂ£¬´ËÎÄ¼ş¼ĞÓëhbasedb.jarÊÇÔÚÍ¬Ò»¸öÄ¿Â¼ÏÂ
+
+23. ½âÑ¹zipÎÄ¼ş   unzip XX.zip
+    Ñ¹ËõzipÎÄ¼ş   zip -r lib.zip lib  libÊÇ±»Ñ¹ËõµÄÎÄ¼ş£¬lib.zipÊÇÑ¹ËõºóÎÄ¼şÃû³Æ
+    ½âÑ¹jar°ü  jar xvf XX.jar
+   ubuntu°²×°unzip £ºsudo apt-get install unzip
+
+24. 8.8.8.8ÊÇÒ»¸öIPµØÖ·£¬ÊÇGoogleÌá¹©µÄÃâ·ÑDNS·şÎñÆ÷µÄIPµØÖ·£¬GoogleÌá¹©µÄÁíÍâÒ»¸öÃâ·ÑDNS·şÎñÆ÷µÄIPµØÖ·ÊÇ£º8.8.4.4 ¡£ÓÃ»§¿ÉÒÔÊ¹ÓÃGoogleÌá¹©µÄDNS·şÎñÆ÷ÉÏÍø¡£
+   Èç¹û»úÆ÷·ÃÎÊÍøÂçµÄÊ±ºò³öÏÖunknown host exceptionµÄ´íÎóÊ±£¬Õâ¸öÊ±ºò¿ÉÄÜ¾ÍÊÇÓòÃû½âÎöÆ÷³öÏÖÎÊÌâ£¬Òò´ËÎÒÃÇÖ»ĞèÒªÉèÖÃÓòÃû½âÎöÆ÷ÎªGoogleµÄÃâ·ÑÓòÃû½âÎöÆ÷¾Í¿ÉÒÔ½â¾öÎÊÌâ
+   ·½·¨£ºÔÚ»úÆ÷µÄÃüÁîĞĞÊäÈësudo system-config-network 8.8.8.8 »òÕß sudo system-config-network 8.8.4.4
+
+25. ÍË³össhÁ¬½Ó£¬Ò²¾ÍÊÇ¹Ø±ÕsshÁ¬½ÓÃüÁî   ÊäÈë£ºexit  ¾ÍĞĞ
+
+26. ²é¿´µ±Ç°Ä¿±êÂ·¾¶  ÊäÈëÃüÁî:pwd
+
+27. ²é¿´µ±Ç°µçÄÔ×ÊÔ´Ê¹ÓÃÇé¿ö  top
+
+28.²é¿´·şÎñÆ÷ÄÜ·ñ·ÃÎÊÄ³ÍøÖ·£º  curl http://www.cnblogs.com/gbyukg/p/3326825.html 
+   ½á¹û·µ»ØÇëÇóµ½µÃÍøÒ³£¬²»ÄÜ·ÃÎÊÔòµÃ²»µ½ÍøÒ³ÄÚÈİ
+   µÚ¶şÖÖ·½·¨£ºwget ¡°http://www.cnblogs.com/gbyukg/p/3326825.html¡±  
+           Èç¹ûÊäÈë wget http://www.cnblogs.com/gbyukg/p/3326825.htmlÃüÁî£¬ÄÇÃ´wget»áÔÚºóÌ¨Ò»Ö±ÅÜ£¬Èç¹ûÁ¬½Ó²»ÉÏ£¬Ôò»á²»Í£µÄ³¢ÊÔÁ¬½Ó£¬²»½¨ÒéÕâÑùÓÃ
+
+29.´Ó·şÎñÆ÷ÏÂÔØÎÄ¼şµ½±¾»ú   
+   scp root@172.17.106.106:/root/soft/cpycheck/hxz-spider.jar /Users/yp-tc-m-2681/Desktop
+   rz  szÃüÁî
+30.²é¿´ÎÄ¼şÒÔ¼°ÎÄ¼ş¼ĞµÄÏêÏ¸ĞÅÏ¢£¬±ÈÈç´´½¨Ê±¼ä£¬´óĞ¡£¬Ãû³ÆµÈ   ls -l
+31.ÔÚÔ¶³Ì²é¿´Linux·şÎñÆ÷logÈÕÖ¾ÎÄ¼şÊ±£¬ Ïë²é¿´µ×²¿ĞÅÏ¢£ºshift+g   Ïë²é¿´ÎÄ¼şÍ·ĞÅÏ¢ g+gµã»÷Á½´Îg
+32.É±ËÀwgetÃüÁî  ps -A |grep wget| cut -c 1-6|xargs kill -9
+   ÒòÎªÈç¹ûÁ¬½Ó²»³É¹¦£¬wgetÃüÁî»áÒ»Ö±²»Í£µÄ³¢ÊÔÁ¬½Ó
+33.nslookup www.baidu.com  ÕâÑù»á·µ»ØÓòÃû·şÎñÆ÷µØÖ·ºÍipÒÔ¼°ÓòÃûwww.baidu.comµÄipµØÖ·£¬Èç¹ûÊäÈëµÄÊÇ       nslookup 180.97.33.107Ôò»á·µ»Ø¸ÃipµÄÓòÃû
+
+34.ÔÚLinuxÅäÖÃÓÃ»§±äÁ¿£¬±ÈÈçJava±äÁ¿»òÕßmaven±äÁ¿  
+   ÒÔÅäÖÃJava±äÁ¿ÎªÀı£º
+   µÚÒ»²½£ºÔÚÖÕ¶ËÊäÈë  vi ~/.bash_profile   i½øÈë±à¼­Ä£Ê½
+   µÚ¶ş²½£ºÊäÈë
+      JAVA_HOME=¡°/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home¡±
+      export PATH=¡°$PATH:$JAVA_HOME/bin¡±  ±£´æ
+   µÚÈı²½£ºÔÚÖÕ¶ËÊäÈë source ~/.bash_profileÊ¹¸ÕĞŞ¸ÄµÄ±äÁ¿ÅäÖÃÉúĞ§
+  ·½·¨2£ºÔÚÖÕ¶ËÊäÈë  PATH="$PATH":/usr/local/mysql/bin   ´Ë·½·¨Ö»»á¶Ôµ±Ç°´°¿ÚÓĞĞ§
+  ·½·¨3£º
+   µÚÒ»²½£ºÔÚÖÕ¶ËÊäÈë  vi ~/.bash_profile   i½øÈë±à¼­Ä£Ê½
+   µÚ¶ş²½£ºÊäÈë
+      PATH="$PATH":/usr/local/mysql/bin  ±£´æ
+   µÚÈı²½£ºÔÚÖÕ¶ËÊäÈë source ~/.bash_profileÊ¹¸ÕĞŞ¸ÄµÄ±äÁ¿ÅäÖÃÉúĞ§
+35.ä¯ÀÀ³¬¹ıÒ»Ò³ÎÄ¼şµÄÃüÁî less XX.txt »òÕß more XX.txt
+36.²é¿´jarÎÄ¼şÄ¿Â¼£¬±ÈÈçÒ»¸öÎÄ¼şÒÑ¾­´ò³Éjar°üÁË£¬µ«ÊÇÎÒÃÇÏë¿´ÆäÄ¿Â¼ÊÇ·ñ´ò°üÕıÈ·¾Í»áÊ¹ÓÃ¸ÃÃüÁî
+   jar tvf spring-webmvc-3.1.3.RELEASE.jar 
+37.²é¿´Ä³ÎÄ¼ş¼ĞÏÂÊÇ·ñÓĞÄ³Ãû×ÖµÄÄ¿Â¼  ls -1|grep jackson-core   ÕâÌõÃüÁî»á½«ÎÄ¼şÃû×Ö´øjackson-coreµÄ¶¼ÁĞ±í³öÀ´
+38.±È½ÏÁ½¸öÎÄ±¾µÄÇø±ğ   diff x x2  xÊÇµÚÒ»¸öÎÄ¼şµÄÃû³Æ£¬x2ÊÇµÚ¶ş¸öÎÄ¼şµÄÃû³Æ
+39.ÏŞËÙ scp -l 4000 ÿ 
+40.ÔËĞĞsh½Å±¾·½·¨
+  ·½·¨1£ºµ±Ç°Ä¿Â¼ÏÂ ./hello.sh 
+  ·½·¨2£º/data/shell/hello.sh
+  ·½·¨3£ºbash hello.sh»òÕßsh hello.sh£¨ÍÆ¼öÊ¹ÓÃ£©
+  ·½·¨4£º. hello.sh »òÕßsource hello.sh
+
+41.ÇĞ»»ÕË»§
+´ÓÆÕÍ¨ÓÃ»§ÇĞ»»³¬¼¶ÓÃ»§È¨ÏŞ£º
+sudo su
+ÊäÈëÃÜÂë
+´Ó³¬¼¶ÓÃ»§ÇĞ»»ÆÕÍ¨ÓÃ»§£º
+su ÓÃ»§Ãû
+
+43.ÖØÃüÃûÎÄ¼ş  mv oldname  newname
+
+macÊ¹ÓÃÃüÁî
+
+1.ÏÔÊ¾Òş²ØÎÄ¼ş       defaults write com.apple.finder AppleShowAllFiles -bool true
+                  KillAll Finder
+2.ÎªĞŞ¸ÄÄ³ÎÄ¼şÉèÖÃÈ¨ÏŞ    sudo chmod 755 /etc/hosts
+3.²é¿´Ä³ÎÄ¼ş»òÕßÎÄ¼ş¼ĞµÄÈ¨ÏŞ    ls -l |grep -i bin   binÊÇ¸öÎÄ¼ş¼ĞÒ²¿ÉÒÔÊÇ¸öÎÄ¼ş
+4.mac ÃüÁîĞĞ°²×°nodejs
+     ²½Öè1£º°²×°MacPorts£¬ÍøÉÏÏÂÔØMacPorts°²×°
+     ²½Öè2£ºÔÚÖÕ¶ËÊäÈëport search nodejs ¿ÉÒÔ²é¿´nodesµÄ°æ±¾
+           È»ºóÊäÈësudo port install nodejs½øĞĞ°²×°
+     Ğ¶ÔØ£º1.Èç¹û²»ÖªµÀÃüÁî£¬¿ÉÒÔÊäÈëman port ²éÑ¯£» port installed¿ÉÒÔ²é¿´°²×°µÄ°ü
+          2.Ğ¶ÔØÃüÁîsudo port uninstall nodejs
+     Í¼ĞÎ½çÃæ°²×°ºóµÄĞ¶ÔØ£ºrm -rf /usr/local/{lib/node{,/.node,_modules},bin,share/man}/node*   
+5.²é¿´ÓÃ»§ºÍÓÃ»§×éÃüÁî£ºid
+6.²é¿´Ä³ÎÄ¼ş¼ĞÏÂÄ³³ÌĞòµÄ»ù±¾ĞÅÏ¢   ls -l /usr/local/bin | grep node  £¨²é¿´/usr/local/binÏÂµÄnodeĞÅÏ¢£©
+7.ĞŞ¸ÄÄ³³ÌĞòËùÊôµÄÓÃ»§  sudo chown -R root /usr/local/bin/node ½«node»®¸ørootÓÃ»§
+8.²é¿´Ä³³ÌĞòÔÚÄÄ¶ù  which node  nodeÊÇ³ÌĞòÃû
+9.ÈçºÎÈÃmac²»×Ô¶¯Éú³ÉDS.storeÎÄ¼ş £¬ÔÚÖÕ¶ËÊäÈëÈçÏÂÃüÁî£¬È»ºóÖØÆô¾ÍOKÁË 
+  defaults write com.apple.desktopservices DSDontWriteNetworkStorestrue true
+
+10.¿ªÆôÒ»¸öĞÂÏß³Ì £ºopen -n Eclipse.app
+chown -R test:test /home/test
+

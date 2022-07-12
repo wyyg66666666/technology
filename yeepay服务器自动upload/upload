@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+#file to upload
+set localfile [lindex $argv 0]
+set remotepath [lindex $argv 1]
+set ukey [lindex $argv 2]
+spawn sftp guohai.tang#app#HENGDAO-1_ssh@192.168.123.13 
+expect "password:"
+send "$ukey#(OI3k1@ekED\r"
+set timeout 10
+expect "Connected"
+set timeout 3600
+send "put $localfile $remotepath\r"
+expect "100%"
+puts "upload complete"
+send "exit"
+#interact

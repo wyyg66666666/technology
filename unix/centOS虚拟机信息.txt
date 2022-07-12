@@ -1,8 +1,0 @@
-login:root
-password:jwtiger
-启动：startx
-
-快捷键
-
-释放鼠标：ctrl+alt
-启动命令行：ctrl+alt+t
