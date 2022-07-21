@@ -122,5 +122,48 @@
 10.MinDoc在线文档管理工具，可以进行api文档编写
 11.docker
 12.https://news.netcraft.com/  查看各种服务器的市场占有率
+13.xmind  思维脑图
+14. processon   流程图
+   https://www.processon.com
 
+1.springboot学习源码
+https://gitee.com/dalaoyang/springboot_learn
+
+2.mybatis分页插件
+https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md
+
+3.httpclient封装比较好的工具源码
+https://github.com/Arronlong/httpclientutil
+
+4.java 实现的api gateway（转发）
+https://github.com/membrane/service-proxy
+
+5.Java封装的ffmpeg工具
+https://github.com/bramp/ffmpeg-cli-wrapper
+
+6.画架构图，设计图的在线编辑网站
+https://www.processon.com/view/5b40eb30e4b09a67415f325f
+
+7.根据数据库表生成表设计文档
+https://github.com/jinkun2014/db-generator
+
+8.翻墙
+https://justmysocks1.net/members/clientarea.php
+账号：982邮箱  密码：jms666666
+
+https://justmysocks.net/members/viewinvoice.php?id=868416&transaction_id=M920605206635559&pm_id=alipay_cn&state=completed&amount=2.73&currency=USD&track_id=868416&sub_track_id=&notify_sig=ddd81684475ee38c98cdcfe32e79fdcd
+
+9.推流工具
+https://github.com/ossrs/srs
+
+10.画柱状图和折线图
+http://charts.udpwork.com/
+https://online.visual-paradigm.com/app/diagrams/#diagram:proj=0&type=LineChart&gallery=/repository/47eba4c6-11b0-4536-8462-e9ddc4ecd693.xml&name=Customer%20Activity%20during%20the%20Week
+
+权限管理系统
+https://gitee.com/y_project/RuoYi-Vue/tree/master/ruoyi
+
+
+photoshop mac安装包 
+https://www.newasp.net/soft/99853.html
 
