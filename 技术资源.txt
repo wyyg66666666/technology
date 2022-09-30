@@ -30,6 +30,7 @@ https://github.com/ossrs/srs
 
 10.画柱状图和折线图
 http://charts.udpwork.com/
+https://online.visual-paradigm.com/app/diagrams/#diagram:proj=0&type=LineChart&gallery=/repository/47eba4c6-11b0-4536-8462-e9ddc4ecd693.xml&name=Customer%20Activity%20during%20the%20Week
 
 通过域名查ip
 https://www.ipaddress.com/
@@ -42,3 +43,18 @@ https://www.nowcoder.com/exam/oj?page=1&tab=SQL%E7%AF%87&topicId=82
 
 刷题题库
 https://leetcode.cn/
+
+12306火车票订单超时-Java高效解决方案
+https://www.bilibili.com/video/av49092590/?share_medium=web&share_source=qq&bbid=618C4B72-C704-47AA-B261-A1AE0535C15D65956infoc&ts=1555080124541
+
+photoshop mac安装包 
+https://www.newasp.net/soft/99853.html
+
+权限管理系统
+https://gitee.com/y_project/RuoYi-Vue/tree/master/ruoyi
+
+
+
+
+
+
