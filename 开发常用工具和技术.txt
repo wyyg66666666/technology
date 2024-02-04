@@ -41,7 +41,6 @@
 36.权限框架   shiro
 37.JsRender 是一款基于jQuery的JavaScript模版引擎
 38.jquery.pagination.js 分页插件
-39.echarts 画各种图表，饼图、柱状图、热力图等
 40.RequireJS 是一个JavaScript模块加载器。可以见http://www.runoob.com/w3cnote/requirejs-tutorial-1.html的介绍
 
 41.template.js  模板js，具体使用可以百度  https://github.com/yanhaijing/template.js/blob/master/doc/api.md
